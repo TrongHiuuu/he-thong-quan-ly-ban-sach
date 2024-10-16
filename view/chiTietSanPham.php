@@ -7,7 +7,7 @@
             <div class="detail-book-content b-shadow">
                 <div class="book-title row">
                     <div class="image-book col-4">
-                        <img src="../assets/example-book6.jpg" alt="">
+                        <img src="../asset/img/example-book6.jpg" alt="">
                     </div>
                     <div class="title-book col-8">
                         <div class="title">
@@ -84,5 +84,3 @@
     <?php 
         include_once "../inc/footer.php"
     ?>
-</body>
-</html>

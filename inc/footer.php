@@ -1,4 +1,4 @@
-<body>
+
     <footer>
         <div class="footer">
             <div class="footer-img">
