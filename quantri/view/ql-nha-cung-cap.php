@@ -249,10 +249,6 @@
                             <label for="supplier-phone" class="form-label">Số điện thoại</label>
                             <input type="tel" name="supplier-phone" id="supplier-phone" class="form-control" placeholder="Nhập số điện thoại">
                         </div>
-                        <div class="mb-3">
-                            <label for="supplier-address" class="form-label">Địa chỉ</label>
-                            <input type="text" name="supplier-address" id="supplier-address" class="form-control" placeholder="Nhập số nhà, tên đường">
-                        </div>
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <label for="supplier-city" class="form-label">Tỉnh/thành</label>
@@ -288,6 +284,11 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="supplier-address" class="form-label">Địa chỉ</label>
+                            <input type="text" name="supplier-address" id="supplier-address" class="form-control" placeholder="Nhập số nhà, tên đường">
+                        </div>
+                        
                         <div class="row mb-3 align-items-center edit">
                             <label class="col-form-label col-sm-3">Trạng thái</label>
                             <div class="col form-check form-switch ps-5">
