@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./asset/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/img/favicon.png" type="image/x-icon">
     
     <!-- Font awesome cnd -->
     <link href="https://cdn.jsdelivr.net/gh/HuongLamCoder/font-awesome-pro-6.5.2/fontawesome-pro-6.5.2-web/css/all.min.css" rel="stylesheet" type="text/css"/>
@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- Link CSS ở đây nè!!! -->
-    <link rel="stylesheet" href="./asset/admin.css">
+    <link rel="stylesheet" href="../asset/css/admin.css">
 
     <title>Vinabook - Trang quản trị</title>
 </head>
@@ -32,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a href="#" class="navbar-brand ms-3">
-                <img src="./asset/img/vinabook-logo.png" alt="Vinabook" style="width: 250px;">
+                <img src="../asset/img/vinabook-logo.png" alt="Vinabook" style="width: 250px;">
             </a>
         </div>
         <!-- Sidebar -->
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item sidebar-item">
-                        <a href="#" class="nav-link text-black fs-5 align-items-center">
+                        <a href="../index.php" class="nav-link text-black fs-5 align-items-center">
                             <i class="fa-regular fa-address-book me-3"></i>
                             Quản lý nhà cung cấp
                         </a>

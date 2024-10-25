@@ -1,3 +1,12 @@
+<!-- <----Header----> 
+<?php
+include '../inc/header.php';
+require '../controller/ql-nha-cung-cap.php';
+$sql1 = "SELECT idTinh,tenTinh FROM tinh ORDER BY tenTinh ASC";
+$result1 = mysqli_query($GLOBALS['conn'], $sql1);
+
+?>
+
 <body>
     <!-- Content -->
     <div class="container pt-5">
@@ -11,7 +20,7 @@
             <div class="col-auto">
                 <button class="btn btn-control" 
                         type="button" 
-                        onclick="openModal('add')"
+                        onclick="openModal(event,'add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#supplierModal"
                 >
@@ -72,136 +81,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nhã Nam</td>
-                            <td>nhanam.book@gmail.com</td>
-                            <td>0123456789</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-circle-info"></i>
-                                </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
+                            <?php
+                            $sql = "SELECT idNCC, tenNCC, email, dienthoai, trangthai FROM nhacungcap";
+                            $result = $conn->query($sql);
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Văn học</td>
-                            <td>vanhoc.book@gmail.com</td>
-                            <td>0123456789</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-circle-info"></i>
-                                </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
+                            if ($result->num_rows > 0) {
+                                // Xuất dữ liệu của mỗi hàng
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td class='supplier_id'>" . $row["idNCC"] . "</td>";
+                                    echo "<td>" . $row["tenNCC"] . "</td>";
+                                    echo "<td>" . $row["email"] . "</td>";
+                                    echo "<td>" . $row["dienthoai"] . "</td>";
+                                    if($row['trangthai'] == 0) {
+                                        echo '<td><span class="badge rounded-2 text-white bg-secondary p-2">Bị ẩn</span></td>';
+                                    } else {
+                                        echo '<td><span class="badge rounded-2 text-white bg-success p-2">Hoạt động</span></td>';
+                                    }
+                                    echo '<td>';
+                                    echo '<form>';
+                                    echo '<button class="btn fs-5" onclick="openModal(event,\'view\')" data-bs-toggle="modal" data-bs-target="#supplierModal">';
+                                    echo '<i class="fa-regular fa-circle-info"></i>';
+                                    echo '</button>';
+                                    echo '<button class="btn fs-5" onclick="openModal(event,\'edit\')" data-bs-toggle="modal" data-bs-target="#supplierModal">';
+                                    echo '<i class="fa-regular fa-pen-to-square"></i>';
+                                    echo '</button>';
+                                    echo '</form>';
+                                    echo '</td>';
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            $conn->close();
+                            ?>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Tuổi trẻ</td>
-                            <td>tuoitre.book@gmail.com</td>
-                            <td>0123456789</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-circle-info"></i>
-                                </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Cổ Nguyệt</td>
-                            <td>conguyetbooks@gmail.com</td>
-                            <td>0123456789</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-circle-info"></i>
-                                </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>IPM</td>
-                            <td>ipm.book@gmail.com</td>
-                            <td>0123456789</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-circle-info"></i>
-                                </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#supplierModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -228,6 +142,8 @@
     <!-- ... -->
 
     <!-- Modal -->
+
+
     <div class="modal fade" id="supplierModal" tabindex="-1" aria-labelledby="supplierModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -235,7 +151,7 @@
                     <h2 class="modal-title text-success" id="supplierModalLabel">Thêm nhà cung cấp</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="#" id="supplierForm">
+                <form id="supplierForm" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="supplier-name" class="form-label">Tên nhà cung cấp</label>
@@ -249,46 +165,45 @@
                             <label for="supplier-phone" class="form-label">Số điện thoại</label>
                             <input type="tel" name="supplier-phone" id="supplier-phone" class="form-control" placeholder="Nhập số điện thoại">
                         </div>
-                        <div class="mb-3">
-                            <label for="supplier-address" class="form-label">Địa chỉ</label>
-                            <input type="text" name="supplier-address" id="supplier-address" class="form-control" placeholder="Nhập số nhà, tên đường">
-                        </div>
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <label for="supplier-city" class="form-label">Tỉnh/thành</label>
                                 <select name="supplier-city" id="supplier-city" class="form-select">
                                     <option selected>Chọn tỉnh/thành</option>
-                                    <option value="1">Hà Nội</option>
-                                    <option value="2">Hồ Chí Minh</option>
-                                    <option value="3">Đà Nẵng</option>
-                                    <option value="4">Hải Phòng</option>
-                                    <option value="5">Cần Thơ</option>
+                                    <?php
+                                        while ($row1 = mysqli_fetch_assoc($result1)) {
+                                    ?>
+                                        <option value="<?php echo isset($row1['idTinh']) ? $row1['idTinh'] : ''; ?>">
+                                            <?php echo isset($row1['tenTinh']) ? $row1['tenTinh'] : 'Tên tỉnh không tồn tại'; ?>
+                                        </option>
+                                    <?php
+                                        }
+                                    ?>
+
+
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="supplier-district" class="form-label">Quận/huyện</label>
                                 <select name="supplier-district" id="supplier-district" class="form-select">
                                     <option selected>Chọn quận/huyện</option>
-                                    <option value="1">Ba Đình</option>
-                                    <option value="2">Hoàn Kiếm</option>
-                                    <option value="3">Hai Bà Trưng</option>
-                                    <option value="4">Đống Đa</option>
-                                    <option value="5">Cầu Giấy</option>
+                                  
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="supplier-ward" class="form-label">Phường/xã</label>
                                 <select name="supplier-ward" id="supplier-ward" class="form-select">
                                     <option selected>Chọn phường/xã</option>
-                                    <option value="1">Phường 1</option>
-                                    <option value="2">Phường 2</option>
-                                    <option value="3">Phường 3</option>
-                                    <option value="4">Phường 4</option>
-                                    <option value="5">Phường 5</option>
+                                   
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3 align-items-center edit">
+                        <div class="mb-3">
+                            <label for="supplier-address" class="form-label">Địa chỉ</label>
+                            <input type="text" name="supplier-address" id="supplier-address" class="form-control" placeholder="Nhập số nhà, tên đường">
+                        </div>
+                       
+                        <div id="statusForm" class="row mb-3 align-items-center edit">
                             <label class="col-form-label col-sm-3">Trạng thái</label>
                             <div class="col form-check form-switch ps-5">
                                 <input  type="checkbox" 
@@ -303,7 +218,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="alert"></div>
                     <div class="modal-footer"> 
+                      <input type="hidden" name="add_data_supplier" value="submit">
                         <button type="submit" class="btn btn-success" id="modalSaveBtn">Thêm nhà cung cấp</button>
                     </div>
                 </form>
@@ -313,6 +230,9 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-nha-cung-cap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../asset/js/ql-nha-cung-cap.js"></script>
+    <script src="../asset/js/address.js"></script>
 </body>
+
 </html>
