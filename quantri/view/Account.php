@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./asset/img/favicon.png" type="image/x-icon">
-    
-    <!-- Font awesome cnd -->
-    <link href="https://cdn.jsdelivr.net/gh/HuongLamCoder/font-awesome-pro-6.5.2/fontawesome-pro-6.5.2-web/css/all.min.css" rel="stylesheet" type="text/css"/>
-
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-    <!-- Link CSS ở đây nè!!! -->
-    <link rel="stylesheet" href="./asset/admin.css">
-
-    <title>Vinabook - Trang quản trị</title>
-</head>
-<body>
-    <!-- Content -->
-    <div class="container pt-5">
+   <!-- Content -->
+    <main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ TÀI KHOẢN</h1>
@@ -30,9 +8,8 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#accountModal"
                 >
@@ -76,7 +53,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -106,8 +83,7 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#accountModal"
                                 >
@@ -125,8 +101,7 @@
                                 <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#accountModal"
                                 >
@@ -144,8 +119,7 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#accountModal"
                                 >
@@ -163,8 +137,7 @@
                                 <span class="bagde rounded-2 text-white bg-secondary p-2">Bị ẩn</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#accountModal"
                                 >
@@ -182,8 +155,7 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#accountModal"
                                 >
@@ -213,7 +185,7 @@
                 </nav>
         </div>
         <!-- ... -->
-    </div>
+    </main>
     <!-- ... -->
 
     <!-- Modal -->
@@ -225,22 +197,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="#" id="accountForm">
+                    <input type="hidden" name="account_id" id="account_id" value="">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Họ và tên</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="Nhập họ và tên">
+                            <span class="text-message user-name-msg"></span>
                         </div>
                         <div class="mb-3">
                             <label for="usermail" class="form-label">Email</label>
                             <input type="email" name="usermail" id="usermail" class="form-control" placeholder="Nhập địa chỉ email">
+                            <span class="text-message user-email-msg"></span>
                         </div>
                         <div class="mb-3 add">
                             <label for="password" class="form-label">Mật khẩu</label>
                             <input type="text" name="password" id="password" class="form-control" placeholder="Nhập mật khẩu">
+                            <span class="text-message user-password-msg"></span>
                         </div>
                         <div class="mb-3">
                             <label for="userphone" class="form-label">Số điện thoại</label>
                             <input type="tel" name="userphone" id="userphone" class="form-control" placeholder="Nhập số điện thoại">
+                            <span class="text-message user-phone-msg"></span>
                         </div>
                         <div class="row mb-3">
                             <label for="userrole" class="col-form-label col-sm-3">Nhóm quyền</label>
@@ -252,25 +229,27 @@
                                     <option value="3">Nhân viên quản lý mã giảm giá</option>
                                     <option value="4">Kế toán</option>
                                 </select>
+                                <span class="text-message user-phone-msg"></span>
                             </div>
                         </div>
                         <div class="row mb-3 align-items-center edit">
                             <label class="col-form-label col-sm-3">Trạng thái</label>
                             <div class="col form-check form-switch ps-5">
                                 <input  type="checkbox" 
-                                        name="userstatus" 
-                                        id="userstatus" 
+                                        name="status" 
+                                        id="status" 
                                         class="form-check-input" 
                                         role="switch" 
                                         checked
                                         onchange="document.getElementById('switch-label').textContent = this.checked ? 'Đang hoạt động' : 'Bị khóa';"
                                 >
-                                <label for="userstatus" class="form-check-label" id="switch-label">Đang hoạt động</label>
+                                <label for="status" class="form-check-label" id="switch-label">Đang hoạt động</label>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer"> 
-                        <button type="submit" class="btn btn-success" id="modalSaveBtn">Thêm tài khoản</button>
+                    <div class="modal-footer">
+                        <input type="hidden" name="" id="submit_btn">
+                        <button type="submit" class="btn btn-success" id="saveModalBtn">Thêm tài khoản</button>
                     </div>
                 </form>
             </div>
@@ -279,6 +258,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-tai-khoan.js"></script>
+    <script src="./asset/js/Account.js"></script>
 </body>
 </html>

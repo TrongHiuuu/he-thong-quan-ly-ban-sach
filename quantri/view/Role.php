@@ -1,7 +1,5 @@
-<body>
-
     <!-- Content -->
-    <div class="container pt-5">
+    <main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ NHÓM QUYỀN</h1>
@@ -10,9 +8,8 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#permissionModal"
                 >
@@ -24,10 +21,10 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nhập id, tên nhóm quyền" aria-label="Tìm kiếm nhóm quyền" aria-describedby="search-bar">
                     <button class="btn btn-outline-custom" type="button" id="search-btn">Tìm</button>
-                  </div>
+                </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -47,15 +44,13 @@
                             <td>1</td>
                             <td>Quản lý tài khoản</td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
@@ -70,15 +65,13 @@
                             <td>2</td>
                             <td>Quản lý nhóm quyền</td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
@@ -93,15 +86,13 @@
                             <td>3</td>
                             <td>Nhân viên nhập hàng</td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
@@ -116,15 +107,13 @@
                             <td>4</td>
                             <td>Quản lý mã giảm giá</td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
@@ -139,15 +128,13 @@
                             <td>5</td>
                             <td>Nhân viên bán hàng</td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#permissionModal"
                                 >
@@ -180,7 +167,7 @@
               </nav>
         </div>
         <!-- ... -->
-    </div>
+    </main>
     <!-- ... -->
 
     <!-- MODAL-->
@@ -192,10 +179,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" id="permissionForm" style="overflow-y: auto;">
+                    <input type="hidden" name="permission_id" id="permission_id" value="">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="permissionGroupName" placeholder="Nhập tên nhóm quyền">
                             <label for="permissionGroupName" style="color: #1D712C;">Tên nhóm quyền</label>
+                            <span class="text-message permission-name-msg"></span>
                         </div>
     
                         <table class="table table-borderless permission-group">
@@ -310,7 +299,8 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" id="modalSaveBtn">Thêm nhóm quyền</button>
+                        <input type="hidden" name="" id="submit_btn">
+                        <button type="submit" class="btn btn-success" id="saveModalBtn">Thêm nhóm quyền</button>
                     </div>
                 </form>
             </div>
@@ -319,6 +309,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-nhom-quyen.js"></script>
+    <script src="./asset/js/Role.js"></script>
 </body>
 </html>

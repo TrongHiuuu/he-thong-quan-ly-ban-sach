@@ -1,5 +1,4 @@
-<body>
-    <div class="container pt-5">
+    <main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ TÁC GIẢ</h1>
@@ -8,9 +7,8 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#authorModal"
                 >
@@ -30,7 +28,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -47,15 +45,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            foreach($result as $author){
+                                extract($author);
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>Nguyễn Ngọc Ánh</td>
+                            <td class="author_id"><?=$idTG?></td>
+                            <td class ="author_name"><?=$tenTG?></td>
                             <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
+                                <?php
+                                    if($trangthai)
+                                        echo '<span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>';
+                                    else
+                                        echo '<span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>'
+                                ?>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn open-edit-modal fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#authorModal"
                                 >
@@ -63,70 +69,9 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Bác sĩ pháp y Tần Minh</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lôi Mễ</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Tử Kim Trần</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Nguyễn Du</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <?php
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -161,11 +106,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="#" id="authorForm">
+                    <input type="hidden" name="author_id" id="author_id" value="">
                     <div class="modal-body">
                         <div class="row mb-3">
-                            <label for="author-name" class="col-form-label col-sm-3">Tên tác giả</label>
+                            <label for="author_name" class="col-form-label col-sm-3">Tên tác giả</label>
                             <div class="col-sm-9">
-                                <input type="text" name="author-name" class="form-control" id="author-name">
+                                <input type="text" name="author_name" class="form-control" id="author_name">
+                                <span class="text-message author-name-msg"></span>
                             </div>
                         </div>
                         <div class="row align-items-center edit">
@@ -184,6 +131,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="" id="submit_btn">
                         <button type="submit" id="saveModalBtn" class="btn btn-success">Thêm tác giả</button>
                     </div>
                 </form>
@@ -193,6 +141,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-tac-gia.js"></script>
+    <script src="./asset/js/Author.js"></script>
 </body>
 </html>

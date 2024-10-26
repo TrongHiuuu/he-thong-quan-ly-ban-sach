@@ -1,6 +1,5 @@
-<body>
     <!-- Content -->
-    <div class="container pt-5">
+    <main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ NHÀ CUNG CẤP</h1>
@@ -9,9 +8,8 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#supplierModal"
                 >
@@ -53,7 +51,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -81,15 +79,13 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
@@ -107,15 +103,13 @@
                                 <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
                             </td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
@@ -133,15 +127,13 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
@@ -159,15 +151,13 @@
                                 <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
                             </td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
@@ -185,15 +175,13 @@
                                 <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
                             </td>
                             <td>
-                                <button class="btn fs-5" 
-                                        onclick="openModal('view')"
+                                <button class="btn fs-5 open_view_form" 
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
                                     <i class="fa-regular fa-circle-info"></i>
                                 </button>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#supplierModal"
                                 >
@@ -224,7 +212,7 @@
                 </nav>
         </div>
         <!-- ... -->
-    </div>
+    </ma>
     <!-- ... -->
 
     <!-- Modal -->
@@ -236,24 +224,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="#" id="supplierForm">
+                    <input type="hidden" name="supplier_id" id="supplier_id">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="supplier-name" class="form-label">Tên nhà cung cấp</label>
                             <input type="text" name="supplier-name" id="supplier-name" class="form-control" placeholder="Nhập tên nhà cung cấp">
+                            <span class="text-message supplier-name-msg"></span>
                         </div>
                         <div class="mb-3">
                             <label for="supplier-email" class="form-label">Email</label>
                             <input type="email" name="supplier-email" id="supplier-email" class="form-control" placeholder="Nhập địa chỉ email">
+                            <span class="text-message supplier-email-msg"></span>
                         </div>
                         <div class="mb-3">
                             <label for="supplier-phone" class="form-label">Số điện thoại</label>
                             <input type="tel" name="supplier-phone" id="supplier-phone" class="form-control" placeholder="Nhập số điện thoại">
+                            <span class="text-message supplier-phone-msg"></span>
                         </div>
                         <div class="mb-3">
                             <label for="supplier-address" class="form-label">Địa chỉ</label>
                             <input type="text" name="supplier-address" id="supplier-address" class="form-control" placeholder="Nhập số nhà, tên đường">
+                            <span class="text-message supplier-address-msg"></span>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3 not-view">
                             <div class="col-md-4">
                                 <label for="supplier-city" class="form-label">Tỉnh/thành</label>
                                 <select name="supplier-city" id="supplier-city" class="form-select">
@@ -264,6 +257,7 @@
                                     <option value="4">Hải Phòng</option>
                                     <option value="5">Cần Thơ</option>
                                 </select>
+                                <span class="text-message supplier-province-msg"></span>
                             </div>
                             <div class="col-md-4">
                                 <label for="supplier-district" class="form-label">Quận/huyện</label>
@@ -275,6 +269,7 @@
                                     <option value="4">Đống Đa</option>
                                     <option value="5">Cầu Giấy</option>
                                 </select>
+                                <span class="text-message supplier-district-msg"></span>
                             </div>
                             <div class="col-md-4">
                                 <label for="supplier-ward" class="form-label">Phường/xã</label>
@@ -286,25 +281,27 @@
                                     <option value="4">Phường 4</option>
                                     <option value="5">Phường 5</option>
                                 </select>
+                                <span class="text-message supplier-ward-msg"></span>
                             </div>
                         </div>
                         <div class="row mb-3 align-items-center edit">
                             <label class="col-form-label col-sm-3">Trạng thái</label>
                             <div class="col form-check form-switch ps-5">
                                 <input  type="checkbox" 
-                                        name="userstatus" 
-                                        id="userstatus" 
+                                        name="status" 
+                                        id="status" 
                                         class="form-check-input" 
                                         role="switch" 
                                         checked
                                         onchange="document.getElementById('switch-label').textContent = this.checked ? 'Đang hoạt động' : 'Bị khóa';"
                                 >
-                                <label for="userstatus" class="form-check-label" id="switch-label">Đang hoạt động</label>
+                                <label for="status" class="form-check-label" id="switch-label">Đang hoạt động</label>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer"> 
-                        <button type="submit" class="btn btn-success" id="modalSaveBtn">Thêm nhà cung cấp</button>
+                    <div class="modal-footer">
+                        <input type="hidden" name="" id="submit_btn">
+                        <button type="submit" class="btn btn-success" id="saveModalBtn">Thêm nhà cung cấp</button>
                     </div>
                 </form>
             </div>
@@ -313,6 +310,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-nha-cung-cap.js"></script>
+    <script src="./asset/js/Supplier.js"></script>
 </body>
 </html>

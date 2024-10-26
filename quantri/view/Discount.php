@@ -1,5 +1,4 @@
-<body>
-    <div class="container pt-5">
+    <main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ MÃ GIẢM GIÁ</h1>
@@ -8,11 +7,10 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
-                        data-bs-target="#couponModal"
+                        data-bs-target="#discountModal"
                 >
                     <i class="fa-regular fa-plus me-2"></i>
                     Thêm mã giảm giá
@@ -30,7 +28,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -91,10 +89,9 @@
                                 <span class="bagde rounded-2 text-white bg-primary p-2">Chưa diễn ra</span>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn fs-5 open_edit_form"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#couponModal"
+                                        data-bs-target="#discountModal"
                                 >
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </button>
@@ -125,39 +122,44 @@
                 </nav>
         </div>
         <!-- ... -->
-    </div>
+    </main>
     <!-- ... -->
 
     <!-- Modal -->
-    <div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="couponModalLabel" aria-hidden="true">
+    <div class="modal fade" id="discountModal" tabindex="-1" aria-labelledby="discountModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title text-success" id="couponModalLabel">Thêm mã giảm giá</h2>
+                    <h2 class="modal-title text-success" id="discountModalLabel">Thêm mã giảm giá</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="#" id="couponForm">
+                <form action="#" id="discountForm">
+                    <input type="hidden" name="discount_id" id="discount_id">
                     <div class="modal-body">
                         <div class="row mb-3">
-                            <label for="coupon-percent" class="col-form-label col-sm-4">Phần trăm giảm</label>
+                            <label for="discount-percent" class="col-form-label col-sm-4">Phần trăm giảm</label>
                             <div class="col">
-                                <input type="number" min="1" max="100" name="coupon-percent" class="form-control" id="coupon-percent">
+                                <input type="number" min="1" max="100" name="discount-percent" class="form-control" id="discount-percent">
+                                <span class="text-message discount-percent-msg"></span>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="coupon-date-start" class="col-form-label col-sm-4">Ngày bắt đầu</label>
+                            <label for="discount-date-start" class="col-form-label col-sm-4">Ngày bắt đầu</label>
                             <div class="col">
-                                <input type="date" name="coupon-date-start" class="form-control" id="coupon-date-start">
+                                <input type="date" name="discount-date-start" class="form-control" id="discount-date-start">
+                                <span class="text-message discount-date-start-msg"></span>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="coupon-date-end" class="col-form-label col-sm-4">Ngày kết thúc</label>
+                            <label for="discount-date-end" class="col-form-label col-sm-4">Ngày kết thúc</label>
                             <div class="col">
-                                <input type="date" name="coupon-date-end" class="form-control" id="coupon-date-end">
+                                <input type="date" name="discount-date-end" class="form-control" id="discount-date-end">
+                                <span class="text-message discount-date-end-msg"></span>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="" id="submit_btn">
                         <button type="submit" id="saveModalBtn" class="btn btn-success">Thêm mã giảm giá</button>
                     </div>
                 </form>
@@ -167,6 +169,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-ma-giam-gia.js"></script>
+    <script src="./asset/js/Discount.js"></script>
 </body>
 </html>
