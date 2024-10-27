@@ -195,7 +195,7 @@
                                     <th>Tạo mới</th>
                                     <th>Cập nhật</th>
                                     <th>Xóa</th>
-                                    <th>In</th>
+                                    <th>In</th> 
                                 </tr>
                             </thead>
                             <tbody>

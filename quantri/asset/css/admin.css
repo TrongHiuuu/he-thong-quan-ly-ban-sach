@@ -21,6 +21,19 @@ body {
     background: linear-gradient(45deg, #b4adad4d, #cccccc4d);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
 /* ... */
 
 /* COMMON */
@@ -142,6 +155,57 @@ body {
 }
 /* .... */
 
-/* THỐNG KÊ */
+/* PRODUCTS */
+.book-img {
+    width: 100px;
+}
 
+.modal-body-left {
+    border-right: 1px solid #1d712ce0;
+}
+
+.img-preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.img-preview-container>.upload-img-preview {
+    padding: 5px;
+    width: 250px;
+}
+
+.upload-img-preview .img-preview {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form-group-file {
+    text-align: center;
+}
+
+.form-label-file {
+    margin: 20px 0;
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #1D712C;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.form-label-file i {
+    margin-right: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.form-label-file:hover {
+    background-color: #1d712cf0;
+    cursor: pointer;
+}
+
+.form-label-file:hover i {
+    transform: translateY(-3px);
+}
 /* ... */

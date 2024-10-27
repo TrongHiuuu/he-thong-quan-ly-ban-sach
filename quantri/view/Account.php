@@ -32,7 +32,7 @@
                     </div>
                     <div class="col">
                         <div class="input-group">
-                            <select id="status-select" class="form-select">
+                            <select id="permission-select" class="form-select">
                                 <option selected>Tất cả nhóm quyền</option>
                                 <option value="1">Nhân viên bán hàng</option>
                                 <option value="2">Nhân viên nhập kho</option>
