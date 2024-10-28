@@ -227,209 +227,210 @@
     </div>
     <!-- ... -->
 
-    <!-- MODAL -->
-    <div class="modal fade"
-        id="orderModal"
-        tabindex="-1"
-        aria-labelledby="orderModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title text-success text-uppercase" id="orderModalLabel">Chi tiết đơn hàng</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="orderForm">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-6 modal-body-left px-3" style="max-height: 450px; overflow-y:auto;">
-                                <table class="table table-stripped text-center table-hover align-middle border-success">
-                                    <thead class="table-header">
-                                        <tr>
-                                            <th scope="col">Mã sách</th>
-                                            <th>Tên sách</th>
-                                            <th>Số lượng</th>
-                                            <th>Đơn giá</th>
-                                            <th>Thành tiền</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiên Lý Ơi</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Đom đóm</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Hồng Nhan</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Bạc Phận</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiên Lý Ơi</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Đom đóm</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Hồng Nhan</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Bạc Phận</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiên Lý Ơi</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Đom đóm</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Hồng Nhan</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Bạc Phận</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiên Lý Ơi</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Đom đóm</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Hồng Nhan</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Bạc Phận</td>
-                                            <td>97</td>
-                                            <td>997.000 đ</td>
-                                            <td>997.997.000 đ</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-6 modal-body-right px-3">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Mã đơn hàng</span>
-                                        <span class="detail-value text-end w-50">1</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Tên khách hàng</span>
-                                        <span class="detail-value text-end w-50">Gabriel García Márquez</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Số điện thoại</span>
-                                        <span class="detail-value text-end w-50">0123456789</span>
-                                    </li>
-                                    <li class="list-group-item d-flex flex-column">
-                                        <span class="fw-bold">Địa chỉ giao</span>
-                                        <textarea disabled class="detail-value w-100 rounded-2 mt-2 text-dark" rows="2">999/98/101/22C Nguyễn Thị Minh Khai, Phường Phạm Ngũ Lão, Quận Bình Thạnh, Tp Hồ Chí Minh</textarea>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Ngày tạo đơn</span>
-                                        <span class="detail-value text-end w-60">13/10/2024</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Ngày cập nhật</span>
-                                        <span class="detail-value text-end w-50">28/10/2024</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Tổng tiền</span>
-                                        <span class="detail-value text-end w-50">102.000.000 đ</span>
-                                    </li>
-                                    <li class="list-group-item not-edit d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Trạng thái</span>
-                                        <span class="detail-value text-end w-50">Chờ duyệt</span>
-                                    </li>
-                                    <li class="list-group-item edit d-flex justify-content-between align-items-center">
-                                        <label for="status-select" class="fw-bold">Trạng thái</label>
-                                        <select name="status-select" id="status-select" class="border-success form-select align-content-end detail-value w-50">
-                                            <option value="2">Chờ duyệt</option>
-                                            <option value="1">Đang vận chuyển</option>
-                                            <option value="3">Hủy bởi người bán</option>
-                                        </select>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <span class="fw-bold">Nhân viên cập nhật</span>
-                                        <!-- Ko có thì để trống -->
-                                        <span class="detail-value text-end w-50">97 - Trịnh Trần Phương Tứn</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer edit">
-                        <input type="hidden" name="" id="submit_btn">
-                        <button type="submit" class="btn btn-success" id="saveModalBtn">Lưu thay đổi</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- ... -->
 </main>
 
+<!-- MODAL -->
+<div class="modal fade"
+    id="orderModal"
+    tabindex="-1"
+    aria-labelledby="orderModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-success text-uppercase" id="orderModalLabel">Chi tiết đơn hàng</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="orderForm">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 modal-body-left px-3" style="max-height: 450px; overflow-y:auto;">
+                            <table class="table table-stripped text-center table-hover align-middle border-success">
+                                <thead class="table-header">
+                                    <tr>
+                                        <th scope="col">Mã sách</th>
+                                        <th>Tên sách</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Thiên Lý Ơi</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Đom đóm</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hồng Nhan</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Bạc Phận</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Thiên Lý Ơi</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Đom đóm</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hồng Nhan</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Bạc Phận</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Thiên Lý Ơi</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Đom đóm</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hồng Nhan</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Bạc Phận</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Thiên Lý Ơi</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Đom đóm</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hồng Nhan</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Bạc Phận</td>
+                                        <td>97</td>
+                                        <td>997.000 đ</td>
+                                        <td>997.997.000 đ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6 modal-body-right px-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Mã đơn hàng</span>
+                                    <span class="detail-value text-end w-50">1</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Tên khách hàng</span>
+                                    <span class="detail-value text-end w-50">Gabriel García Márquez</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Số điện thoại</span>
+                                    <span class="detail-value text-end w-50">0123456789</span>
+                                </li>
+                                <li class="list-group-item d-flex flex-column">
+                                    <span class="fw-bold">Địa chỉ giao</span>
+                                    <textarea disabled class="detail-value w-100 rounded-2 mt-2 text-dark" rows="2">999/98/101/22C Nguyễn Thị Minh Khai, Phường Phạm Ngũ Lão, Quận Bình Thạnh, Tp Hồ Chí Minh</textarea>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Ngày tạo đơn</span>
+                                    <span class="detail-value text-end w-60">13/10/2024</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Ngày cập nhật</span>
+                                    <span class="detail-value text-end w-50">28/10/2024</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Tổng tiền</span>
+                                    <span class="detail-value text-end w-50">102.000.000 đ</span>
+                                </li>
+                                <li class="list-group-item not-edit d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Trạng thái</span>
+                                    <span class="detail-value text-end w-50">Chờ duyệt</span>
+                                </li>
+                                <li class="list-group-item edit d-flex justify-content-between align-items-center">
+                                    <label for="status-select" class="fw-bold">Trạng thái</label>
+                                    <select name="status-select" id="status-select" class="border-success form-select align-content-end detail-value w-50">
+                                        <option value="2">Chờ duyệt</option>
+                                        <option value="1">Đang vận chuyển</option>
+                                        <option value="3">Hủy bởi người bán</option>
+                                    </select>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Nhân viên cập nhật</span>
+                                    <!-- Ko có thì để trống -->
+                                    <span class="detail-value text-end w-50">97 - Trịnh Trần Phương Tứn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer edit">
+                    <input type="hidden" name="" id="submit_btn">
+                    <button type="submit" class="btn btn-success" id="saveModalBtn">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- ... -->
+ 
 <!-- Link JS -->
 <script src="./asset/js/Order.js"></script>
