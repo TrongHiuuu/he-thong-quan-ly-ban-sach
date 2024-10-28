@@ -154,7 +154,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="#" id="categoryForm">
-                    <input type="hidden" name="category_id" id="category_id">
+                    <input type="hidden" name="category_id" id="category_id" value="">
                     <div class="modal-body">
                         <div class="row mb-3">
                             <label for="category-name" class="col-form-label col-sm-4">Tên danh mục</label>

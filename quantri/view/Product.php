@@ -392,6 +392,7 @@
                                 <label for="product-description" class="col-form-label col-sm-3 fw-bold">Mô tả</label>
                                 <div class="col">
                                     <textarea
+                                        rows="5"
                                         name="product-description"
                                         class="form-control"
                                         id="product-description">

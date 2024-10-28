@@ -77,6 +77,11 @@ input[type="file"] {
     font-style: normal;
     color: #1d712c;
 }
+
+.bg-warning-custom {
+    background-color: #c5a11d;
+}
+
 /* ... */
 
 /* QUẢN LÝ */
