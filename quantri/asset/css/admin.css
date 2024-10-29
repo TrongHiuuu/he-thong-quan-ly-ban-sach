@@ -214,3 +214,36 @@ input[type="file"] {
     transform: translateY(-3px);
 }
 /* ... */
+
+/* GRN */
+.modal-grn-info {
+    padding: 20px;
+    background-color: #1d712c1d;
+    border: 1px solid #1d712c;
+    border-radius: 8px;
+}
+
+.modal-grn-info .grn-info-title {
+    font-weight: bold;
+    width: 15%;
+}
+
+.grn-info-group-item .grn-info-title {
+    width: 30%;
+}
+
+.modal-grn-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grn-row-template {
+    display: none;
+}
+
+.delete-row i {
+    color: #1d712c;
+    font-size: x-large;
+}
+/* ... */

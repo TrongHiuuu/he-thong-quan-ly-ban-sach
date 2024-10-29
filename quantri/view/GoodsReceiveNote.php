@@ -204,7 +204,13 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="" id="submit_btn">
-                    <button type="submit" class="btn btn-success" id="saveModalBtn">Tạo phiếu nhập</button>
+                    <button type="button"
+                        class="btn btn-success"
+                        id="saveModalBtn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#grnModal">
+                        Tạo phiếu nhập
+                    </button>
                 </div>
             </form>
         </div>
@@ -213,7 +219,185 @@
 <!-- ... -->
 
 <!-- Modal: Thêm phiếu nhập -->
-    
+<div class="modal fade"
+    tabindex="-1"
+    id="grnModal"
+    aria-labelledby="grnModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-success text-uppercase" id="grnModalLabel">Phiếu nhập sách</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-grn-info d-flex flex-column gap-1">
+                    <div class="grn-info d-flex gap-2">
+                        <span class="grn-info-title">
+                            Mã phiếu nhập:
+                        </span>
+                        <span class="grn-info-content">
+                            1
+                        </span>
+                    </div>
+                    <div class="grn-info-group d-flex">
+                        <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
+                            <div class="grn-info d-flex gap-2 w-100">
+                                <span class="grn-info-title">
+                                    Trạng thái:
+                                </span>
+                                <span class="grn-info-content">
+                                    Chưa hoàn thành
+                                </span>
+                            </div>
+                            <div class="grn-info d-flex gap-2">
+                                <span class="grn-info-title">
+                                    Nhà cung cấp:
+                                </span>
+                                <span class="grn-info-content">
+                                    Công ty TNHH 8 thành viên
+                                </span>
+                            </div>
+                            <div class="grn-info d-flex gap-2">
+                                <span class="grn-info-title">
+                                    Nhân viên:
+                                </span>
+                                <span class="grn-info-content">
+                                    95 - Tùng Sơn MTV
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
+                            <div class="grn-info d-flex gap-2">
+                                <span class="grn-info-title">
+                                    Ngày tạo phiếu:
+                                </span>
+                                <span class="grn-info-content">
+                                    01/01/2024
+                                </span>
+                            </div>
+                            <div class="grn-info d-flex gap-2">
+                                <span class="grn-info-title">
+                                    Ngày cập nhật
+                                </span>
+                                <span class="grn-info-content">
+                                    01/01/2024
+                                </span>
+                            </div>
+                            <div class="grn-info d-flex gap-2">
+                                <span class="grn-info-title">
+                                    Chiết khấu:
+                                </span>
+                                <span class="grn-info-content">
+                                    50%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="grn-info d-flex gap-2 text-danger fw-bold">
+                        <span class="grn-info-title">
+                            Tổng tiền:
+                        </span>
+                        <span class="grn-info-content">
+                            8.000.000 đ
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-grn-controls my-3">
+                    <!-- Bỏ row-count thì sửa lại vị trí của nút add-row-btn sang sát lề phải -->
+                    <p class="row-count">
+                        Đang có <span class="fw-bold">1</span> sản phẩm trong phiếu nhập.
+                    </p>
+                    <button type="button" id="add-row-btn" class="btn btn-success grn-controls add-row">
+                        <i class="fa-regular fa-file-plus"></i>
+                        Thêm dòng
+                    </button>
+                </div>
+                <form id="grnForm">
+                    <div class="modal-table-conent">
+                        <table class="table table-bordered text-center table-hover align-middle border-success">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sách</th>
+                                    <th>Số lượng</th>
+                                    <th>Đơn giá</th>
+                                    <th>Đơn giá bìa</th>
+                                    <th>Thành tiền</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="grn-row-template">
+                                    <td>1</td>
+                                    <td>
+                                        <select name="grn_product[]" class="form-select">
+                                            <option selected>Chọn tựa sách</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control grn-quantity" name="grn_quantity[]" min="1">
+                                    </td>
+                                    <td>
+                                        <!-- Dùng JS tính giá nhập (dựa vào giá bìa & chiết khấu) -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <!-- Dùng AJAX hiển thị giá bìa -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <!-- Dùng JS tính thành tiền -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn delete-row" title="Xóa hàng">
+                                            <i class="fa-regular fa-delete-left"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <select name="grn_product[]" class="form-select">
+                                            <option selected>Chọn tựa sách</option>
+                                            <option value="1">Hahaha</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control grn-quantity" name="grn_quantity[]" min="1">
+                                    </td>
+                                    <td>
+                                        <!-- Dùng JS tính giá nhập (dựa vào giá bìa & chiết khấu) -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <!-- Dùng AJAX hiển thị giá bìa -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <!-- Dùng JS tính thành tiền -->
+                                        105.000 đ
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn delete-row" title="Xóa hàng">
+                                            <i class="fa-regular fa-delete-left"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="" id="submit_btn">
+                <button type="submit" class="btn btn-success" id="saveModalBtn">Thêm phiếu nhập</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ... -->
 
 <!-- Link JS -->
