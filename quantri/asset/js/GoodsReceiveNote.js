@@ -1,7 +1,12 @@
 $(document).ready(function () {
+    const createModal = document.getElementById('grnCreateModal');
     const modal = document.getElementById('grnModal');
+    
+    createModal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('grnCreateForm').reset();
+    });
 
-    document.getElementById('grnModal').addEventListener('hidden.bs.modal', function () {
+    modal.addEventListener('hidden.bs.modal', function () {
         document.getElementById('grnForm').reset();
         if (!modal.classList.contains('view-modal')) {
             location.reload();
