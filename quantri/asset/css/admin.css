@@ -246,4 +246,9 @@ input[type="file"] {
     color: #1d712c;
     font-size: x-large;
 }
+
+.grn-status-select {
+    background-color: #1d712c0b;
+    border: 1px solid #1d712c40;
+}
 /* ... */

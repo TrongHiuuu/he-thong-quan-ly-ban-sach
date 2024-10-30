@@ -3,9 +3,47 @@ $(document).ready(function () {
 
     document.getElementById('grnModal').addEventListener('hidden.bs.modal', function () {
         document.getElementById('grnForm').reset();
-        location.reload();
+        if (!modal.classList.contains('view-modal')) {
+            location.reload();
+        }
     });
 
+    const modalTitle = document.getElementById('grnModalLabel');
+    const modalSaveBtn = document.getElementById('saveModalBtn');
+    var submit_btn = document.getElementById('submit_btn');
+    
+    $('.open_add_form').click(function (e) {
+        e.preventDefault();
+
+        modalTitle.textContent = 'Thêm phiếu nhập sách';
+        submit_btn.setAttribute('name', 'submit_btn_add');
+
+        $('#grnForm').find('.edit').hide();
+        $('#grnModal').find('.view').hide();
+        $('#grnModal').find('.not-view:not(.edit)').show();
+    });
+
+    $('.open_edit_form').click(function (e) {
+        e.preventDefault();
+
+        modalTitle.textContent = 'Chỉnh sửa phiếu nhập sách';
+        modalSaveBtn.textContent = 'Lưu thay đổi';
+        submit_btn.setAttribute('name', 'submit_btn_update');
+
+        $('#grnForm').find('.not-edit').hide();
+        $('#grnModal').find('.view').hide();
+        $('#grnModal').find('.not-view').show();
+        $('#grnForm').find('.edit').show();
+    });
+
+    $('.open_view_form').click(function (e) {
+        e.preventDefault();
+
+        modal.classList.add('view-modal');
+        $('#grnModal').find('.view').show();
+        modalTitle.textContent = 'Chi tiết phiếu nhập sách';
+        $('#grnModal').find('.not-view').hide();
+    });
 
     $('#add-row-btn').on('click', function () {
         let newRow = $('.grn-row-template').clone().removeClass('grn-row-template');

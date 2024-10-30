@@ -78,7 +78,7 @@
                         <td>
                             <button class="btn fs-5 open_view_form"
                                 data-bs-toggle="modal"
-                                data-bs-target="#grnViewModal"
+                                data-bs-target="#grnModal"
                                 title="Xem chi tiết">
                                 <i class="fa-regular fa-circle-info"></i>
                             </button>
@@ -106,7 +106,7 @@
                         <td>
                             <button class="btn fs-5 open_view_form"
                                 data-bs-toggle="modal"
-                                data-bs-target="#grnViewModal"
+                                data-bs-target="#grnModal"
                                 title="Xem chi tiết">
                                 <i class="fa-regular fa-circle-info"></i>
                             </button>
@@ -128,7 +128,7 @@
                         <td>
                             <button class="btn fs-5 open_view_form"
                                 data-bs-toggle="modal"
-                                data-bs-target="#grnViewModal"
+                                data-bs-target="#grnModal"
                                 title="Xem chi tiết">
                                 <i class="fa-regular fa-circle-info"></i>
                             </button>
@@ -206,7 +206,7 @@
                     <input type="hidden" name="" id="submit_btn">
                     <button type="button"
                         class="btn btn-success"
-                        id="saveModalBtn"
+                        id="saveCreateModalBtn"
                         data-bs-toggle="modal"
                         data-bs-target="#grnModal">
                         Tạo phiếu nhập
@@ -231,90 +231,97 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="modal-grn-info d-flex flex-column gap-1">
-                    <div class="grn-info d-flex gap-2">
-                        <span class="grn-info-title">
-                            Mã phiếu nhập:
-                        </span>
-                        <span class="grn-info-content">
-                            1
-                        </span>
-                    </div>
-                    <div class="grn-info-group d-flex">
-                        <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
-                            <div class="grn-info d-flex gap-2 w-100">
-                                <span class="grn-info-title">
-                                    Trạng thái:
-                                </span>
-                                <span class="grn-info-content">
-                                    Chưa hoàn thành
-                                </span>
-                            </div>
-                            <div class="grn-info d-flex gap-2">
-                                <span class="grn-info-title">
-                                    Nhà cung cấp:
-                                </span>
-                                <span class="grn-info-content">
-                                    Công ty TNHH 8 thành viên
-                                </span>
-                            </div>
-                            <div class="grn-info d-flex gap-2">
-                                <span class="grn-info-title">
-                                    Nhân viên:
-                                </span>
-                                <span class="grn-info-content">
-                                    95 - Tùng Sơn MTV
-                                </span>
-                            </div>
-                        </div>
-                        <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
-                            <div class="grn-info d-flex gap-2">
-                                <span class="grn-info-title">
-                                    Ngày tạo phiếu:
-                                </span>
-                                <span class="grn-info-content">
-                                    01/01/2024
-                                </span>
-                            </div>
-                            <div class="grn-info d-flex gap-2">
-                                <span class="grn-info-title">
-                                    Ngày cập nhật
-                                </span>
-                                <span class="grn-info-content">
-                                    01/01/2024
-                                </span>
-                            </div>
-                            <div class="grn-info d-flex gap-2">
-                                <span class="grn-info-title">
-                                    Chiết khấu:
-                                </span>
-                                <span class="grn-info-content">
-                                    50%
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="grn-info d-flex gap-2 text-danger fw-bold">
-                        <span class="grn-info-title">
-                            Tổng tiền:
-                        </span>
-                        <span class="grn-info-content">
-                            8.000.000 đ
-                        </span>
-                    </div>
-                </div>
-                <div class="modal-grn-controls my-3">
-                    <!-- Bỏ row-count thì sửa lại vị trí của nút add-row-btn sang sát lề phải -->
-                    <p class="row-count">
-                        Đang có <span class="fw-bold">1</span> sản phẩm trong phiếu nhập.
-                    </p>
-                    <button type="button" id="add-row-btn" class="btn btn-success grn-controls add-row">
-                        <i class="fa-regular fa-file-plus"></i>
-                        Thêm dòng
-                    </button>
-                </div>
                 <form id="grnForm">
+                    <div class="modal-grn-info d-flex flex-column gap-1">
+                        <div class="grn-info d-flex gap-2">
+                            <span class="grn-info-title">
+                                Mã phiếu nhập:
+                            </span>
+                            <span class="grn-info-content">
+                                1
+                            </span>
+                        </div>
+                        <div class="grn-info-group d-flex">
+                            <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
+                                <div class="grn-info d-flex gap-2 w-100 align-items-center">
+                                    <span class="grn-info-title">
+                                        Trạng thái:
+                                    </span>
+                                    <span class="grn-info-content not-edit">
+                                        Chưa hoàn thành
+                                    </span>
+                                    <div class="edit not-view">
+                                        <select name="status" id="status" class="form-select grn-status-select">
+                                            <option value="1">Chưa hoàn thành</option>
+                                            <option value="2">Hoàn thành</option>
+                                            <option value="3">Hủy phiếu nhập</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grn-info d-flex gap-2">
+                                    <span class="grn-info-title">
+                                        Nhà cung cấp:
+                                    </span>
+                                    <span class="grn-info-content">
+                                        Công ty TNHH 8 thành viên
+                                    </span>
+                                </div>
+                                <div class="grn-info d-flex gap-2">
+                                    <span class="grn-info-title">
+                                        Nhân viên:
+                                    </span>
+                                    <span class="grn-info-content">
+                                        95 - Tùng Sơn MTV
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="grn-info-group-item d-flex flex-column gap-1 w-50">
+                                <div class="grn-info d-flex gap-2">
+                                    <span class="grn-info-title">
+                                        Ngày tạo phiếu:
+                                    </span>
+                                    <span class="grn-info-content">
+                                        01/01/2024
+                                    </span>
+                                </div>
+                                <div class="grn-info d-flex gap-2">
+                                    <span class="grn-info-title">
+                                        Ngày cập nhật
+                                    </span>
+                                    <span class="grn-info-content">
+                                        01/01/2024
+                                    </span>
+                                </div>
+                                <div class="grn-info d-flex gap-2">
+                                    <span class="grn-info-title">
+                                        Chiết khấu:
+                                    </span>
+                                    <span class="grn-info-content">
+                                        50%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="grn-info d-flex gap-2 text-danger fw-bold">
+                            <span class="grn-info-title">
+                                Tổng tiền:
+                            </span>
+                            <span class="grn-info-content">
+                                8.000.000 đ
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-grn-controls my-3">
+                        <!-- Bỏ row-count thì sửa lại vị trí của nút add-row-btn sang sát lề phải -->
+                        <p class="row-count">
+                            Đang có <span class="fw-bold">1</span> sản phẩm trong phiếu nhập.
+                        </p>
+                        <button type="button" id="add-row-btn" class="btn btn-success grn-controls add-row not-view">
+                            <i class="fa-regular fa-file-plus"></i>
+                            Thêm dòng
+                        </button>
+                    </div>
                     <div class="modal-table-conent">
                         <table class="table table-bordered text-center table-hover align-middle border-success">
                             <thead class="table-header">
@@ -325,19 +332,22 @@
                                     <th>Đơn giá</th>
                                     <th>Đơn giá bìa</th>
                                     <th>Thành tiền</th>
-                                    <th>Thao tác</th>
+                                    <th class="not-view">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="grn-row-template">
                                     <td>1</td>
                                     <td>
-                                        <select name="grn_product[]" class="form-select">
+                                        <select name="grn_product[]" class="form-select not-view">
                                             <option selected>Chọn tựa sách</option>
+                                            <option value="1">Hahaha</option>
                                         </select>
+                                        <span class="view"></span>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control grn-quantity" name="grn_quantity[]" min="1">
+                                        <input type="number" class="form-control grn-quantity not-view" name="grn_quantity[]" min="1">
+                                        <span class="view"></span>
                                     </td>
                                     <td>
                                         <!-- Dùng JS tính giá nhập (dựa vào giá bìa & chiết khấu) -->
@@ -351,7 +361,7 @@
                                         <!-- Dùng JS tính thành tiền -->
                                         105.000 đ
                                     </td>
-                                    <td>
+                                    <td class="not-view">
                                         <button type="button" class="btn delete-row" title="Xóa hàng">
                                             <i class="fa-regular fa-delete-left"></i>
                                         </button>
@@ -360,13 +370,15 @@
                                 <tr>
                                     <td>1</td>
                                     <td>
-                                        <select name="grn_product[]" class="form-select">
+                                        <select name="grn_product[]" class="form-select not-view">
                                             <option selected>Chọn tựa sách</option>
                                             <option value="1">Hahaha</option>
                                         </select>
+                                        <span class="view">Đón ánh mặt trời</span>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control grn-quantity" name="grn_quantity[]" min="1">
+                                        <input type="number" class="form-control grn-quantity not-view" name="grn_quantity[]" min="1">
+                                        <span class="view">12</span>
                                     </td>
                                     <td>
                                         <!-- Dùng JS tính giá nhập (dựa vào giá bìa & chiết khấu) -->
@@ -380,7 +392,7 @@
                                         <!-- Dùng JS tính thành tiền -->
                                         105.000 đ
                                     </td>
-                                    <td>
+                                    <td class="not-view">
                                         <button type="button" class="btn delete-row" title="Xóa hàng">
                                             <i class="fa-regular fa-delete-left"></i>
                                         </button>
@@ -391,7 +403,7 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer not-view">
                 <input type="hidden" name="" id="submit_btn">
                 <button type="submit" class="btn btn-success" id="saveModalBtn">Thêm phiếu nhập</button>
             </div>
