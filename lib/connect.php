@@ -1,10 +1,7 @@
 <?php
- 
-    
     $GLOBALS['conn'] = new mysqli("localhost","root","","quanlybansach");
-    
-  
-       function getPage(){
+
+    function getPage(){
         $curr_page = 1;
         if(isset($_GET['index']))
             $curr_page=$_GET['index'];

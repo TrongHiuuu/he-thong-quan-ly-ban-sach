@@ -21,9 +21,70 @@ body {
     background: linear-gradient(45deg, #b4adad4d, #cccccc4d);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
 /* ... */
 
-/* NHÓM QUYỀN */
+/* COMMON */
+.text-message {
+    color: darkred;
+    font-size: small;
+}
+/* ... */
+
+/* LOGIN */
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 450px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.form-title {
+    font-weight: 600;
+    text-align: center;
+}
+
+.forgot-password {
+    text-align: end;
+}
+
+.forgot-password-link {
+    color: #1d712c;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.forgot-password-link:hover {
+    font-style: normal;
+    color: #1d712c;
+}
+
+.bg-warning-custom {
+    background-color: #c5a11d;
+}
+
+/* ... */
+
+/* QUẢN LÝ */
 .account-name {
     color: #1D712C;
     font-size: 18px;
@@ -98,3 +159,58 @@ body {
     text-align: left;
 }
 /* .... */
+
+/* PRODUCTS */
+.book-img {
+    width: 100px;
+}
+
+.modal-body-left {
+    border-right: 1px solid #1d712ce0;
+}
+
+.img-preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.img-preview-container>.upload-img-preview {
+    padding: 5px;
+    width: 250px;
+}
+
+.upload-img-preview .img-preview {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form-group-file {
+    text-align: center;
+}
+
+.form-label-file {
+    margin: 20px 0;
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #1D712C;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.form-label-file i {
+    margin-right: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.form-label-file:hover {
+    background-color: #1d712cf0;
+    cursor: pointer;
+}
+
+.form-label-file:hover i {
+    transform: translateY(-3px);
+}
+/* ... */
