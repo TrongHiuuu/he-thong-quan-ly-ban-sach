@@ -15,6 +15,7 @@ $(document).ready(function () {
     $('.open_add_form').click(function (e) {
         e.preventDefault();
 
+        modal.classList.remove('view-modal');
         modalTitle.textContent = 'Thêm phiếu nhập sách';
         submit_btn.setAttribute('name', 'submit_btn_add');
 
@@ -26,6 +27,7 @@ $(document).ready(function () {
     $('.open_edit_form').click(function (e) {
         e.preventDefault();
 
+        modal.classList.remove('view-modal');
         modalTitle.textContent = 'Chỉnh sửa phiếu nhập sách';
         modalSaveBtn.textContent = 'Lưu thay đổi';
         submit_btn.setAttribute('name', 'submit_btn_update');
