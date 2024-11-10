@@ -30,7 +30,7 @@
                 <!-- Vinabook logo -->
                 <div class="col-3">
                     <div class="logo">
-                        <a href="" class="navbar-brand">
+                        <a href="?page=trang_chu" class="navbar-brand">
                             <img src="asset/img/vinabook-logo.png" alt="">
                         </a>
                     </div>
@@ -48,17 +48,24 @@
                 <div class="col-3">
                     <ul class="nav-btn-list">
                         <li>
-                            <a href="" class="btn btn-1"><i class="fa-light fa-cart-shopping"></i></a>
+                            <a href="?page=gio_hang" class="btn btn-1"><i class="fa-light fa-cart-shopping"></i></a>
                         </li>
                         <li>
-                            <a href="" class="btn btn-2 signin-btn">Đăng nhập</a>
+                            <?php if (empty($_SESSION['user'])):?>
+                                <a href="?page=signIn" class="btn btn-2 signin-btn">Đăng nhập</a>
+                            <?php else: ?>
+                                <a href="?page=customerInfo" class="btn btn-2 signin-btn"><?php echo $_SESSION['user']['fullname'];?></a>
+                            <?php endif?>
                         </li>
                         <li>
-                            <a href="" class="btn btn-1 signup-btn">Đăng ký</a>
+                            <?php if (empty($_SESSION['user'])):?>
+                                <a href="?page=signUp" class="btn btn-1 signup-btn">Đăng ký</a>
+                            <?php else: ?>
+                                <a href="?page=signOut" class="btn btn-1 signup-btn">Đăng xuất</a>
+                            <?php endif?>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
-

@@ -1,6 +1,3 @@
-<?php 
-    include_once "../inc/header.php";
-?>
 <main>
         <!-- Đăng nhập -->
         <div class="container signin">
@@ -12,32 +9,35 @@
                     </div>
                     <!-- form điền email, mật khẩu để đăng nhập -->
                     <div class="signin-box">
-                        <form action="" class="signin-form">
+                        <form action="" class="signin-form" id="signIn_form"method="POST">
                             <ul>
                                 <li class="input-field">
                                     <strong>Email<span class="mandatory-symbol">*</span></strong>
-                                    <input class="signin-input" type="text" placeholder="Nhập email...">
+                                    <input class="signin-input" id="signIn_email" name="email" type="text" placeholder="Nhập email..."><br>
+                                    <span class="error errorMessage_signIn_email" id="signIn_error_email"></span>
                                 </li>
                                 <li>
                                     <strong>Mật khẩu<span class="mandatory-symbol">*</span></strong>
-                                    <input class="signin-input" type="password" placeholder="Nhập mật khẩu...">
+                                    <input class="signin-input" id="signIn_password" name="password" type="password" placeholder="Nhập mật khẩu..."><br>
+                                    <span class="error errorMessage_signIn_password" id="signIn_error_password"></span>
                                 </li>
                             </ul>
                             <div class="forgot-password">
-                                <a class="nav-link" href=""><i>Quên mật khẩu?</i></a>
+                                <a class="nav-link" href="?page=forgotPassword"><i>Quên mật khẩu?</i></a>
                             </div>
                             <div class="submit-btn">
-                                <button class="btn">Đăng nhập</button>
+                                <button class="btn btnSignIn">Đăng nhập</button>
                             </div>
                         </form>
                         <div class="signin-text">
-                            <span>Chưa có tài khoản? &nbsp;	<a href="" class="nav-link">Đăng ký ngay</a></span>
+                            <span>Chưa có tài khoản? &nbsp;	<a href="?page=signUp" class="nav-link">Đăng ký ngay</a></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <?php 
-        include_once "../inc/footer.php"
-    ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="asset/js/signIn.js?v=<?php echo time(); ?>"></script>
+</body>
+</html>
