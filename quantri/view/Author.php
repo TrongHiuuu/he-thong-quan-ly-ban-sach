@@ -1,5 +1,4 @@
-<body>
-    <div class="container pt-5">
+<main class="container pt-5">
         <!-- Page title -->
         <div class="row">
             <h1 class="page-title">QUẢN LÝ TÁC GIẢ</h1>
@@ -8,9 +7,8 @@
         <!-- Page control -->
         <div class="row d-flex justify-content-between">
             <div class="col-auto">
-                <button class="btn btn-control" 
+                <button class="btn btn-control open_add_form" 
                         type="button" 
-                        onclick="openModal('add')"
                         data-bs-toggle="modal" 
                         data-bs-target="#authorModal"
                 >
@@ -30,7 +28,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-control">Làm mới</button>
+                <button onclick="location.reload()" type="button" class="btn btn-control">Làm mới</button>
             </div>
         </div>
         <!-- ... -->
@@ -47,15 +45,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            //chia mang result thanh tung trang
+                        $num_per_page = 5; //total records each page
+                        $curr_page = getPage();
+                        $start = ($curr_page-1)*$num_per_page; //start divide for this page
+                        $total_records = count($result);
+                        echo '<input type="hidden" name="curr_page" class="curr_page" value="'.$curr_page.'">';
+
+                        $keys = array_keys($result);
+                        for($i=$start; $i<$start+$num_per_page && $i<$total_records; $i++){
+                            extract($result[$keys[$i]]);
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>Nguyễn Ngọc Ánh</td>
+                            <td class="author_id"><?=$idTG?></td>
+                            <td class ="author_name"><?=$tenTG?></td>
                             <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
+                                <?php
+                                    if($trangthai)
+                                        echo '<span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>';
+                                    else
+                                        echo '<span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>'
+                                ?>
                             </td>
                             <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
+                                <button class="btn open-edit-modal fs-5 open_edit_form"
                                         data-bs-toggle="modal"
                                         data-bs-target="#authorModal"
                                 >
@@ -63,70 +77,9 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Bác sĩ pháp y Tần Minh</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lôi Mễ</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Tử Kim Trần</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-secondary p-2">Bị khóa</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Nguyễn Du</td>
-                            <td>
-                                <span class="bagde rounded-2 text-white bg-success p-2">Hoạt động</span>
-                            </td>
-                            <td>
-                                <button class="btn fs-5"
-                                        onclick="openModal('edit')"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#authorModal"
-                                >
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <?php
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -136,17 +89,29 @@
         <div class="row mt-4">
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                    <a class="page-link">Trước</a>
-                    </li>
-                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                    <a class="page-link text-dark" href="#">Sau</a>
-                    </li>
+                <?php
+                    $total_pages = ceil($total_records/$num_per_page);
+                    echo '<li class="page-item disabled">';
+                    if($curr_page>1) 
+                    echo '<a class="page-link" href="index.php?page='.$pageTitle.'&index='.($curr_page-1).'">Trước</a>';
+                    else 
+                    echo '<a class="page-link" href="index.php?page='.$pageTitle.'&index=1">Trước</a>';
+                    echo '</li>';
+                    for($i=1; $i<=$total_pages; $i++){
+                        echo '<li class="page-item">';
+                        if($curr_page==$i)
+                            echo '<a class="page-link active" href="index.php?page='.$pageTitle.'&index='.$i.'">'.$i;
+                        else echo '<a class="page-link" href="index.php?page='.$pageTitle.'&index='.$i.'">'.$i;
+                        echo '</a></li>';
+                    }
+                    echo '<li class="page-item">';
+                    if($curr_page<$total_pages)
+                        echo '<a class="page-link text-dark" href="index.php?page='.$pageTitle.'&index='.($curr_page+1).'">Sau</a>';
+                    else echo '<a class="page-link text-dark" href="index.php?page='.$pageTitle.'&index='.$total_pages.'">Sau</a>';
+                    echo '</li>';
+                ?>
                 </ul>
-                </nav>
+              </nav>
         </div>
         <!-- ... -->
     </div>
@@ -161,11 +126,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="#" id="authorForm">
+                    <input type="hidden" name="author_id" id="author_id" value="">
                     <div class="modal-body">
                         <div class="row mb-3">
-                            <label for="author-name" class="col-form-label col-sm-3">Tên tác giả</label>
+                            <label for="author_name" class="col-form-label col-sm-3">Tên tác giả</label>
                             <div class="col-sm-9">
-                                <input type="text" name="author-name" class="form-control" id="author-name">
+                                <input type="text" name="author_name" class="form-control" id="author_name">
+                                <span class="text-message author-name-msg"></span>
                             </div>
                         </div>
                         <div class="row align-items-center edit">
@@ -184,6 +151,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="" id="submit_btn">
                         <button type="submit" id="saveModalBtn" class="btn btn-success">Thêm tác giả</button>
                     </div>
                 </form>
@@ -193,6 +161,6 @@
     <!-- ... -->
 
     <!-- Link JS ở chỗ này nè!!! -->
-    <script src="./asset/js/ql-tac-gia.js"></script>
+    <script src="./asset/js/Author.js"></script>
 </body>
 </html>
