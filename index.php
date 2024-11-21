@@ -1,30 +1,32 @@
-<?php
-require 'lib/connect.php';
-require 'model/book.php';
-require 'model/category.php';
-require 'model/author.php';
+<?php 
 
-if(isset($_GET['page'])&&($_GET['page']!=="")){
-    switch(trim($_GET['page'])){   
-        case 'home':
-            require 'controller/home.php';
-            break;
+session_start();
+require_once './config/config.php';
+spl_autoload_register(function ($class) {    
+    $fileName = "$class.php";
 
-        case 'productDetail':
-            require "controller/productDetail.php";
-            break;
+    $fileModel              = PATH_MODEL . $fileName;
+    $fileControllerClient   = PATH_CONTROLLER_CLIENT . $fileName ."Controller";
+    $fileControllerAdmin    = PATH_CONTROLLER_ADMIN . $fileName . "Controller";
 
-        case 'search':
-            require 'controller/search.php';
-            break;
-
-        default:
-            require "controller/productDetail.php";
-            break;
+    if (is_readable($fileModel)) {
+        require_once $fileModel;
+    } 
+    else if (is_readable($fileControllerClient)) {
+        require_once $fileControllerClient;
     }
-}
-else{
-    header("Location:index.php?page=home");
-}
+    else if (is_readable($fileControllerAdmin)) {
+        require_once $fileControllerAdmin;
+    }
+});
 
-?>
+// Điều hướng
+$mode = $_GET['mode'] ?? 'client';
+
+if ($mode == 'admin') {
+    # require đường dẫn của admin
+    require_once './routes/admin.php';
+} else {
+    # require đường dẫn của client
+    require_once './routes/client.php';
+}
