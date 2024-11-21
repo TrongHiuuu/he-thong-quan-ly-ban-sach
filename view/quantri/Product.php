@@ -412,7 +412,7 @@
                 <div class="modal-body">
                     <div class="row row-cols-sm-1 row-cols-md-2 g-3">
                         <?php
-                            $author = Author::getAllActive();
+                            $author = $result['author'];
                             foreach($author as $item){
                         ?>
                             <div class="col form-check">
