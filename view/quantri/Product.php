@@ -128,6 +128,7 @@
                 </thead>
                 <tbody>
                     <?php
+                        $products = $result['product'];
                         echo '<input type="hidden" name="curr_page" class="curr_page" value="'.$paging->curr_page.'">';
                         for($i=$paging->start; $i<$paging->start+$paging->num_per_page && $i<$paging->total_records; $i++){
                             $product = $result[$i];
@@ -249,7 +250,7 @@
                                     <select name="product-supplier" id="product-supplier" class="form-select">
                                         <option selected="selected" value="-1">Chọn nhà cung cấp</option>
                                         <?php
-                                            $supplier = Supplier::getAllActive();
+                                            $supplier = $result['supplier'];
                                             foreach($supplier as $item){
                                         ?>
                                             <option value="<?=$item->getIdNCC()?>"><?=$item->getTenNCC()?></option>
@@ -278,7 +279,7 @@
                                     <select name="product-category" id="product-category" class="form-select">
                                         <option selected="selected">Chọn thể loại</option>
                                         <?php
-                                            $category = Category::getAllActive();
+                                            $category = $result['category'];
                                             foreach($category as $item){
                                         ?>  
                                             <option value="<?=$item->getIdTL()?>"><?=$item->getTenTL()?></option>
@@ -348,7 +349,7 @@
                                     <select name="product-discount" id="product-discount" class="form-select">
                                         <option selected="selected">Chọn mã giảm giá</option>
                                         <?php
-                                            $discount = Discount::getAllWaiting();
+                                            $discount = $result['discount'];
                                             foreach($discount as $item){
                                         ?>
                                             <option value="<?=$item->getIdMGG()?>"><?=$item->getPhantram()?></option>

@@ -110,18 +110,6 @@
             $con->execute($sql);
         }
 
-        // static function findByID($idSach){
-        //     $sql = 'SELECT * FROM magiamgia WHERE idMGG='.$idMGG;
-        //     $con = new Database();
-        //     $req = $con->getOne($sql);
-        //     if($req!=null){
-        //         $discount = new Discount();
-        //         $discount->nhap($req['idMGG'], $req['phantram'], $req['ngaybatdau'], $req['ngayketthuc'], $req['trangthai']);
-        //         return $discount;
-        //     }
-        //     return null;
-        // }
-
         function getTuasach(){
             return $this->tuasach;
         }

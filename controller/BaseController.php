@@ -11,8 +11,8 @@ else{
     class BaseController{
         protected $folder;
 
-        function render($file, $permission, $result=NULL, $paging=false){
-            $option = in_array($permission, ['login']);
+        function render($file, $permission, $result = array(), $paging=false){
+            $option = in_array($permission, ['login', 'KH']);
             if(!$option){
                 $tenCNValues = array_column($_SESSION['permission'], 'tenCN');
                 $found = array_filter($tenCNValues, fn($value) => strpos($value, $permission) !== false);
@@ -25,12 +25,13 @@ else{
             $view_file = '../view/'.$this->folder.'/'.$file.'.php';
             if(is_file($view_file)){
                 if($paging){
-                    $paging = new Pagination($this->folder, strtolower($file), $result);
+                    $paging = new Pagination($this->folder, strtolower($file), $result['paging']);
                     $pagingButton = $paging->paging();
                 }
                 require($view_file);
             }
             else require '../view/error';
+
         }
     }
 ?>

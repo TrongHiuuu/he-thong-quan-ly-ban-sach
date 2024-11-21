@@ -18,7 +18,7 @@ else{
 
         function index(){
             $categories = Category::getAll();
-            $this->render('Category', 'DM', $categories, true);
+            $this->render('Category', 'DM', array('paging' => $categories), true);
         }
 
         function add(){

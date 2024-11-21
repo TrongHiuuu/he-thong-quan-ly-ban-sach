@@ -50,7 +50,7 @@ if(isset($_GET['page']) && ($_GET['page'] !== "")){
                 include './controller/Order.php';
                 break;
             case 'grn':
-                include './controller/GoodsReceiveNote.php';
+                include '../controller/quantri/GoodsReceiveNote.php';
                 break;
             case 'income':
                 include './controller/Income.php';

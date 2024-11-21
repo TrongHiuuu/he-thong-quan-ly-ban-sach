@@ -18,7 +18,7 @@ else{
 
         function index(){
             $account = Account::getAll();
-            $this->render('Account','TK', $account, true);
+            $this->render('Account','TK', array('paging' => $account), true);
         }
 
         function add(){

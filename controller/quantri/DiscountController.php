@@ -18,7 +18,7 @@ else{
 
         function index(){
             $discounts = Discount::getAll();
-            $this->render('Discount', 'MGG', $discounts, true);
+            $this->render('Discount', 'MGG', array('paging' => $discounts), true);
         }
 
         function add(){

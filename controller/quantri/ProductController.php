@@ -17,16 +17,35 @@ else{
 }
     class ProductController extends BaseController{
         private Product $product;
+        private Category $category;
+        private Author $author;
+        private Supplier $supplier;
+        private Discount $discount;
 
         function __construct()
         {
             $this->folder = 'quantri';
             $this->product = new Product();
+            $this->discount = new Discount();
+            $this->category = new Category();
+            $this->supplier = new Supplier();
+            $this->author = new Author();
         }
 
         function index(){
             $products = Product::getAll();
-            $this->render('Product', 'SP', $products, true);
+            $supplier = Supplier::getAllActive();
+            $category = Category::getAllActive();
+            $discount = Discount::getAllWaiting();
+            $author = Author::getAllActive();
+            $result = [
+                'paging' => $products,
+                'supplier' => $supplier,
+                'category' => $category,
+                'discount' => $discount,
+                'author' => $author
+            ];
+            $this->render('Product', 'SP', $result, true);
         }
 
         function add(){

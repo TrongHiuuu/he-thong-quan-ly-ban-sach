@@ -18,7 +18,7 @@ else{
 
         function index(){
             $authors = Author::getAll();
-            $this->render('Author','TG', $authors, true);
+            $this->render('Author','TG', array('paging' => $authors), true);
         }
 
         function add(){
