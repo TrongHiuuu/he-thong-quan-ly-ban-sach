@@ -34,7 +34,7 @@
                                     <li>
                                         <a href="?page=productDetail&idSach=<?=$idSach?>" class="nav-link book-card">
                                             <div class="image-book">
-                                                <img src="asset/img/<?=$hinhanh?>" alt="">
+                                                <img src="asset/client/img/<?=$hinhanh?>" alt="">
                                             </div>
                                             <div class="info-book">
                                                 <span class="book-title">
@@ -82,7 +82,7 @@
                                 ?>
                                         <div class="banner-content">
                                             <div class="image-book">
-                                                <img src="asset/img/<?=$hinhanh?>" class="d-block" alt="...">
+                                                <img src="asset/client/img/<?=$hinhanh?>" class="d-block" alt="...">
                                             </div>
                                             <div class="info-book">
                                                 <div class="title">
@@ -131,7 +131,7 @@
                                 <div class="book-card">
                                     <a href="" class="nav-link">
                                         <div class="image-book">
-                                            <img src="asset/img/<?=$hinhanh?>" alt="">
+                                            <img src="asset/client/img/<?=$hinhanh?>" alt="">
                                         </div>
                                         <div class="info-book">
                                             <div class="title">
@@ -161,6 +161,3 @@
             </div>
         </div>
     </main>
-<?php 
-    include_once "inc/footer.php"
-?>

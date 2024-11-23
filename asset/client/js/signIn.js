@@ -51,7 +51,7 @@ $(document).ready(function () {
       if (validateFormDangNhap()) {
         var formData = new FormData($('#signIn_form')[0]);
         $.ajax({
-          url: "controller/signIn.php",
+          url: "controller/client/AuthenController.php",
           type: "POST",
           data: formData,
           processData: false,
@@ -60,20 +60,22 @@ $(document).ready(function () {
             console.log(response);
             const obj = JSON.parse(response);
             if(obj.success){
-              toast({
-                title: 'Thành công',
-                message: 'Đăng nhập thành công',
-                type: 'success',
-                duration: 3000
-              });
+              // toast({
+              //   title: 'Thành công',
+              //   message: 'Đăng nhập thành công',
+              //   type: 'success',
+              //   duration: 3000
+              // });
+              alert('Đăng nhập thành công');
               window.location.href='index.php?page=home';
             }else{
-              toast({
-                title: 'Lỗi',
-                message: obj.msg,
-                type: 'error',
-                duration: 3000
-              });
+              // toast({
+              //   title: 'Lỗi',
+              //   message: obj.msg,
+              //   type: 'error',
+              //   duration: 3000
+              // });
+              alert(obj.msg);
             }
           },
         });

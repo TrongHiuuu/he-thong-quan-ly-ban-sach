@@ -12,14 +12,14 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1acf2d22a5.js" 
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="asset/css/KHCSS.css">
+        <link rel="stylesheet" href="asset/client/css/KHCSS.css">
         <link href="https://cdn.jsdelivr.net/gh/HuongLamCoder/font-awesome-pro-6.5.2/fontawesome-pro-6.5.2-web/css/all.min.css" 
         rel="stylesheet" 
         type="text/css"/>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <!-- Toast Message -->
-        <link rel="stylesheet" href="asset/css/toast-msg.css">
-        <script src="asset/js/toast-msg.js"></script>
+        <link rel="stylesheet" href="asset/client/css/toast-msg.css">
+        <script src="asset/client/js/toast-msg.js"></script>
 </head>
 <body>
     <header class="header">
@@ -35,7 +35,7 @@
                 <div class="col-3">
                     <div class="logo">
                         <a href="?page=home" class="navbar-brand">
-                            <img src="asset/img/vinabook-logo.png" alt="">
+                            <img src="asset/client/img/vinabook-logo.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -53,13 +53,28 @@
                 <div class="col-3">
                     <ul class="nav-btn-list">
                         <li>
-                            <a href="" class="btn btn-1"><i class="fa-light fa-cart-shopping"></i></a>
+                            <?php if (isset($_SESSION['user']['tenTK'])):?>
+                                <a href="?page=cart" class="btn btn-1"><i class="fa-light fa-cart-shopping"></i></a>
+                            <?php else: ?>
+                                <a href="index.php?page=login" class="btn btn-1"><i class="fa-light fa-cart-shopping"></i></a>
+                            <?php endif ?>
                         </li>
                         <li>
-                            <a href="index.php?page=signIn" class="btn btn-2 signin-btn">Đăng nhập</a>
+                            <?php if (isset($_SESSION['user']['tenTK'])):?>
+                                <a href="index.php?page=customerInfo"class="btn btn-1 signin-btn"><span><?php 
+                                    $temp = explode(" ", $_SESSION['user']['tenTK']);
+                                    echo $temp[sizeof($temp) - 1];
+                                    ?></span></a>
+                            <?php else: ?>
+                                <a href="index.php?page=login" class="btn btn-1 signin-btn">Đăng nhập</a>
+                            <?php endif ?>
                         </li>
                         <li>
-                            <a href="index.php?page=signUp" class="btn btn-1 signup-btn">Đăng ký</a>
+                            <?php if (isset($_SESSION['user']['tenTK'])):?>
+                                <a href="index.php?page=signOut" class="btn btn-2 signin-btn">Đăng xuất</a>
+                            <?php else: ?>
+                                <a href="index.php?page=signUp" class="btn btn-2 signup-btn">Đăng ký</a>
+                            <?php endif ?>
                         </li>
                     </ul>
                 </div>

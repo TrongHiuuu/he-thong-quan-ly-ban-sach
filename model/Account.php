@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['action'])) require '../../model/Role.php';
-else require '../model/Role.php';
+else require __DIR__.'/Role.php';
     class Account{
         private int $idTK;
         private string $tenTK;
@@ -136,7 +136,7 @@ else require '../model/Role.php';
         }
 
         function setTrangthai(string $trangthai){
-            $this->trangthai = $trangthai;
+            $this->trangthai = (int)$trangthai;
         }
 
         function setIdNQ(string $idNQ){
@@ -175,5 +175,43 @@ else require '../model/Role.php';
             return $this->matkhau;
         }
 
+        // Của Híuuu - Hàm cập nhật thông tin và hàm cập nhật mật khẩu cho CustomerInfoController.php
+        function updateAccountInfo() {
+            if(!(self::isExist($this->idTK, $this->email))){
+                $fields = [];
+
+                if ($this->tenTK != '') {
+                    $fields[] = "tenTK = '" .$this->tenTK. "'";
+                }
+
+                if ($this->email != '') {
+                    $fields[] = "email = '" .$this->email. "'";
+                }
+
+                if ($this->dienthoai != '') {
+                    $fields[] = "dienthoai = '" .$this->dienthoai ."'";
+                }
+
+                if (empty($fields)) {
+                    return true; // Không có gì để cập nhật
+                } else {
+                    $sql = "UPDATE taikhoan SET " . implode(",", $fields) . " WHERE idTK = ". $this->idTK;
+                    $con = new Database();
+                        $con->execute($sql);
+                        return true;
+                }
+            }
+        }
+
+    function updateAccountPassword() {
+        if(!(self::isExist($this->idTK, $this->email))){
+            $sql = "UPDATE taikhoan SET matkhau = '" .$this->matkhau. "' WHERE idTK = ". $this->idTK;
+            $con = new Database();
+                $con->execute($sql);
+                return true;
+        }
     }
+
+    // Hết phần của Híuuu rồi nè
+}
 ?>

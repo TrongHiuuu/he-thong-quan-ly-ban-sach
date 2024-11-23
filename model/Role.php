@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['action'])) require '../../model/Permission.php';
-else require '../model/Permission.php';
+else require __DIR__.'/Permission.php';
     class Role{
         private $idNQ;
         private $tenNQ;

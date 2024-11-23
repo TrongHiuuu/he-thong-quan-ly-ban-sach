@@ -4,8 +4,8 @@ if(isset($_POST['action'])){
     require '../../lib/Database.php';
 }
 else{
-    require '../config/config.php';
-    require '../lib/Database.php';
+    require __DIR__.'/../config/config.php';
+    require __DIR__.'/../lib/Database.php';
 }
     require 'Pagination.php';
     class BaseController{
@@ -22,7 +22,7 @@ else{
                 }
             }
             
-            $view_file = '../view/'.$this->folder.'/'.$file.'.php';
+            $view_file = __DIR__.'/../view/'.$this->folder.'/'.$file.'.php';
             if(is_file($view_file)){
                 if($paging){
                     $paging = new Pagination($this->folder, strtolower($file), $result['paging']);
@@ -30,7 +30,6 @@ else{
                 }
                 require($view_file);
             }
-            else require '../view/error';
 
         }
     }

@@ -26,6 +26,7 @@
                                 <a class="nav-link" href="?page=forgotPassword"><i>Quên mật khẩu?</i></a>
                             </div>
                             <div class="submit-btn">
+                                <input type="hidden" name="action" value="submit_login">
                                 <button class="btn btnSignIn">Đăng nhập</button>
                             </div>
                         </form>
@@ -37,7 +38,4 @@
             </div>
         </div>
     </main>
-    <script src="asset/js/signIn.js?v=<?php echo time(); ?>"></script>
-<?php 
-    include_once "inc/footer.php"
-?>
+    <script src="asset/client/js/signIn.js?v=<?php echo time(); ?>"></script>
